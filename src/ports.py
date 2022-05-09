@@ -1,5 +1,9 @@
 import subprocess
 
+######################################
+#   CREATED BY Arnjee & ThorRafnar   #
+######################################
+
 class Ports():
 	"""
 	Parses most n common ports from the output of

@@ -2,6 +2,10 @@ import random
 import time
 import csv
 
+######################################
+#   CREATED BY Arnjee & ThorRafnar   #
+######################################
+
 class Generator:
 	def __init__(self, filename=None, prefix=None, prefixLength=None):   
 		''' Reads a file containing prefixes and lengths, or initializes with 1 prefix and its length '''     

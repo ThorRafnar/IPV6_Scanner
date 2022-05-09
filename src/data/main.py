@@ -5,6 +5,10 @@ from sqlalchemy import Column, String, DateTime, Integer, Table, ForeignKey, cre
 from sqlalchemy.orm import relationship, sessionmaker
 import os
 
+######################################
+#   CREATED BY Arnjee & ThorRafnar   #
+######################################
+
 
 meta = MetaData()
 

@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+
+######################################
+#   CREATED BY Arnjee & ThorRafnar   #
+######################################
+
 from ast import Global
 import socket
 import time

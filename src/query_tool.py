@@ -1,5 +1,9 @@
 from data.dbclass import Data
 
+######################################
+#   CREATED BY Arnjee & ThorRafnar   #
+######################################
+
 def addr_to_string(address):
 	"""RIP debugger"""
 	address = [ "{:0>4}".format(hextet) for hextet in address.split(':') ]

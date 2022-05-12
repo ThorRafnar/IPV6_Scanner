@@ -27,7 +27,6 @@ THREAD_COUNT = 512
 class DeepScan():
     def __init__(self, ports, avg_timeout_seconds=5.4, std_dev_timeout=1.0): # Gaussian distribution of timeout
         self.avg_timeout_seconds = avg_timeout_seconds
-        # 1000 most common ports, gives between 90-95%
         self.ports = ports
         random.shuffle(self.ports)
         self.std_dev_timeout = std_dev_timeout
@@ -94,7 +93,7 @@ def consume_queue():
 
 
 if __name__ == "__main__":
-    p = Ports(10)
+    p = Ports(44)
     p = p.get_common_ports()
     global DEEPSCAN
     DEEPSCAN = DeepScan(p, 1.5, 0.3)
@@ -112,3 +111,4 @@ if __name__ == "__main__":
     channel.start_consuming()
     channel.close()
 
+    

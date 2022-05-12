@@ -104,8 +104,8 @@ class Generator:
         self.current += self.step
         self.iterations += 1
         prefix_ending = random.randint(self.lower_pref, self.upper_pref - 1) * 0x100
-        ls[4] = prefix_ending % 0x10000
-        ls[5] = (prefix_ending // 0x10000) % 0x10000
+        ls[3] = prefix_ending % 0x10000
+        ls[2] = (prefix_ending // 0x10000) % 0x10000
         if ((self.current**self.power) + self.offset >= self.target):
             self.current = 0
             self.offset += 1

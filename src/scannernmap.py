@@ -72,6 +72,7 @@ if __name__ == "__main__":
         country_code = sys.argv[1]
         id = int(sys.argv[2])
         pool_size = int(sys.argv[3])
+        scan_target_count = int(sys.argv[4])
         if not os.path.exists(f'{cwd}/addresses/ipv6{country_code.upper()}.csv'):
             quit()
         #while True:
@@ -102,8 +103,7 @@ if __name__ == "__main__":
         # We have no plans of stopping the scan..
         # As of now the proscess must be killed, no ips will be lost though
         # if the deepscanner is up and running
-        target = 8388608
-        while scanned_count < target:
+        while scanned_count < scan_target_count:
             # To be more stealthy you can put this line in the for loop
             # before the call to main is made
             #ips = gene.get_list(16384)
@@ -111,8 +111,8 @@ if __name__ == "__main__":
                 print(f"Hits {ip_count} of {scanned_count}, {(ip_count / scanned_count) * 100}% Hit rate")
             
             for port in ports:
-                scanned_count += 65536
-                ips = gene.get_list(65536)
+                scanned_count += 16384
+                ips = gene.get_list(16384)
                 main(ips, port)
 
     except KeyboardInterrupt:

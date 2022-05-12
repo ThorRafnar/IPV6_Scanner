@@ -13,7 +13,7 @@ def print_addresses(addresses):
 	print("{:.<42}{:.<6}".format("ADDRESS", "PORTS"))
 	for ipv6 in addresses:
 		# Good luck figuring this one out :^)
-		print("{: <42}".format(addr_to_string(ipv6.address.decode('utf-8'))), end='')
+		print("{: <42}".format(addr_to_string(ipv6.address)), end='')
 		first = True
 		for port in ipv6.ports:
 			if first:
@@ -50,6 +50,7 @@ if __name__ == '__main__':
 			ports = get_ports()
 			addresses = d.get_ipv6_with_open_port(ports)
 			print_addresses_with_port(addresses, ports)
+			print(f'Total addresses: {len(addresses)}')
 		else:
 			print("Invalid input!")
 		inp = input("Input: ")

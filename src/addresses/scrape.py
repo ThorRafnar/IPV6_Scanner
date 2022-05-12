@@ -76,5 +76,5 @@ codes  = ["AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR",
 "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV",
 "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN",
 "VG", "VI", "WF", "EH", "YE", "ZM", "ZW"]
-
-
+for code in codes:
+    s.scrape(code)

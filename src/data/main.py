@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 """
 connection_string = 'sqlite:///'+os.path.join(BASE_DIR, f'{DATABASE_NAME}.sqlite3')
-engine = create_engine(connection_string, echo=True)
+engine = create_engine(connection_string, echo=False)
 Base = declarative_base()
 
 session=sessionmaker()(bind=engine)

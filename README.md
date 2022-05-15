@@ -8,21 +8,42 @@ Set up data/db directory for MongoDB<br>
 $ cd /<br>
 $ mkdir data<br>
 $ mkdir data/db<br>
-Run MongoDB in background, logging to a file<br>
-$ mongod --fork --logpath /var/log/mongod.log<br>
+Run MongoDB<br>
+$ mongod<br>
+Node: This will take over the terminal and another one must be opened to run the Master API
+cd to the /API directory<br>
+install required pip3 modules<br>
+$ pip3 install -r requirements.txt<br>
+Run the API<br>
+$ python3 app2.py<br>
+<br>
+Then: Set up the Nodes<br>
+Change the variable DB_HOST (Line 9 in run.py) to the API ip address and port<br>
+Install rabbitmq (Follow these up to step 6)<br>
+https://www.hackerxone.com/2021/08/24/steps-to-install-rabbitmq-on-ubuntu-20-04/<br>
+cd to the /src directory<br>
+install required pip3 modules<br>
+$ pip3 install -r requirements.txt<br>
+
+Run the node<br>
+$ python3 run.py
+
+This will send a signal to the control API that the node is ready.<br>
+We tested with up to 8 nodes.<br>
+<h2>To run a scan</h2>
+Send a post request to the control API with settings as JSON body. We tested using postman.<br>
+URL: http://64.227.64.75:5000/start_scan
+example JSON:
+{
+    "country_code": "dk",
+    "processes_per_ip": 4,
+    "ips_to_scan": 4000000
+}
+country_code is the country you want to scan.<br>
+processes per ip is how many instances of scanner and deepscan to run per node.<br>
+ips to scan is the total amount of IP addresses to scan, this will be distributed between nodes and processes evenly.<br>
 
 
 
-First make sure you have all the required python modules:
-$ pip3 install -r requirements.txt
 
-To run open 3 terminals and navigate to /src
-Execute these commands, one per terminal:<br>
-rabbitmq-server<br>
-python3 scannernmap.py<br>
-python3 deepscan.py<br>
 
-To start with a fresh database, first navigate to /src/data<br>
-Delete the file scan.sqlite3<br>
-and execute:<br>
-$ python3 create_database.py

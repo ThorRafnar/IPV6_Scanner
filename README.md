@@ -1,7 +1,7 @@
 # IPV6_Scanner
 An ipv6 scanning tool.
 
-First: Set up the Master API on the node you plan to run the database on.<br>
+<h2>First: Set up the Master API on the node you plan to run the database on.</h2>
 Install MongoDB<br>
 $ apt install mongodb<br>
 Set up data/db directory for MongoDB<br>
@@ -17,7 +17,7 @@ $ pip3 install -r requirements.txt<br>
 Run the API<br>
 $ python3 app2.py<br>
 <br>
-Then: Set up the Nodes<br>
+<h2>Then: Set up the Nodes</h2>
 Change the variable DB_HOST (Line 9 in run.py) to the API ip address and port<br>
 Install rabbitmq (Follow these up to step 6)<br>
 https://www.hackerxone.com/2021/08/24/steps-to-install-rabbitmq-on-ubuntu-20-04/<br>

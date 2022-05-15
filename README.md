@@ -34,7 +34,7 @@ We tested with up to 8 nodes.<br>
 Send a post request to the control API with settings as JSON body. We tested using postman.<br>
 URL: http://64.227.64.75:5000/start_scan
 example JSON:<br>
-{<bR
+{<br>
     "country_code": "dk",<br>
     "processes_per_ip": 4,<br>
     "ips_to_scan": 4000000<br>

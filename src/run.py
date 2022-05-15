@@ -19,12 +19,15 @@ def start_working():
     pool_size = data['pool_size']
     country_code = data['country_code']
     ips_to_scan = data['scan_count']
+    # Shut down previous processes
+    os.system('kill -9 $(pgrep -f scannernmap.py)')
+    os.system('kill -9 $(pgrep -f deepscan.py)')
     #Start Deepscan consumers
     for _ in range(process_count):
-        subprocess.Popen(['python3', 'deepscan.py', DB_HOST])
+        subprocess.Popen(['python3', 'deepscan.py', DB_HOST], stdout=subprocess.DEVNULL)
     #Start Masscan Producers
     for i in range(process_count):
-        subprocess.Popen(['python3', 'scannernmap.py', country_code, str(base_id + i), str(pool_size), str(ips_to_scan)], stdout=subprocess.DEVNULL)
+        subprocess.Popen(['python3', 'scannernmap.py', country_code, str(base_id + i), str(pool_size), str(ips_to_scan)])
         
     return Response(status=201)
 

@@ -12,7 +12,6 @@ import sys
 import requests as req
 import pika
 from ports import Ports
-from data.dbclass import Data
 from threading import Thread, Lock
 from queue import Queue
 
@@ -67,7 +66,7 @@ class DeepScan():
                     "address": a,
                     "ports" : open_ports[i]
                 }
-                res = req.post( self.url + '/address', json=data)
+                res = req.post(f'http://{self.url}/address', json=data)
         found_addresses = 0
         for p in open_ports:
             if len(p) > 0:
@@ -94,7 +93,7 @@ def consume_queue():
 
 
 if __name__ == "__main__":
-    p = Ports(44)
+    p = Ports(40)
     p = p.get_common_ports()
     global DEEPSCAN
     db_host_url = sys.argv[1]

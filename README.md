@@ -41,8 +41,9 @@ example JSON:<br>
     "ips_to_scan": 4000000<br>
 }<br>
 country_code is the country you want to scan.<br>
-processes per ip is how many instances of scanner and deepscan to run per node. On our test setup 4 was the maximum.<br>
+processes_per_ip is how many instances of scanner and deepscan to run per node. On our test setup 4 was the maximum.<br>
 ips to scan is the total amount of IP addresses to scan, this will be distributed between nodes and processes evenly.<br>
+We have tested up to 10 million, which ran fine and resulted in approximately 50000 addresses in our database
 NOTE: sending a post request to /start_scan will kill other scans that are going on. Keeping an eye on the Master API and making sure the processes are done is a good idea to prevent lost data. The processes are done when new POST requests stop appearing.<br>
 The response will contain the IP addresses of running nodes, as well as their status code, that is if they are running or not.
 The image shows an example of 1 node running.

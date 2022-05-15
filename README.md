@@ -1,6 +1,18 @@
 # IPV6_Scanner
 An ipv6 scanning tool.
 
+First: Set up the Master API on the node you plan to run the database on.<br>
+Install MongoDB<br>
+$ apt install mongodb<br>
+Set up data/db directory for MongoDB<br>
+$ cd /<br>
+$ mkdir data<br>
+$ mkdir data/db<br>
+Run MongoDB in background, logging to a file<br>
+$ mongod --fork --logpath /var/log/mongod.log<br>
+
+
+
 First make sure you have all the required python modules:
 $ pip3 install -r requirements.txt
 

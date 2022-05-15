@@ -33,12 +33,12 @@ We tested with up to 8 nodes.<br>
 <h2>To run a scan</h2>
 Send a post request to the control API with settings as JSON body. We tested using postman.<br>
 URL: http://64.227.64.75:5000/start_scan
-example JSON:
-{
-    "country_code": "dk",
-    "processes_per_ip": 4,
-    "ips_to_scan": 4000000
-}
+example JSON:<br>
+{<bR
+    "country_code": "dk",<br>
+    "processes_per_ip": 4,<br>
+    "ips_to_scan": 4000000<br>
+}<br>
 country_code is the country you want to scan.<br>
 processes per ip is how many instances of scanner and deepscan to run per node.<br>
 ips to scan is the total amount of IP addresses to scan, this will be distributed between nodes and processes evenly.<br>

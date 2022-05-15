@@ -9,8 +9,8 @@ $ cd /<br>
 $ mkdir data<br>
 $ mkdir data/db<br>
 Run MongoDB<br>
-$ mongod<br>
-Note: This will take over the terminal and another one must be opened to run the Master API
+$ mongod --fork --logpath /var/log/mongod.log<br>
+Note: This will run mongodb in the background, logging to /var/log/mongod.log<br>
 cd to the /API directory<br>
 install required pip3 modules<br>
 $ pip3 install -r requirements.txt<br>

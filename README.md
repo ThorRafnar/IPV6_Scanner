@@ -45,8 +45,8 @@ processes per ip is how many instances of scanner and deepscan to run per node. 
 ips to scan is the total amount of IP addresses to scan, this will be distributed between nodes and processes evenly.<br>
 NOTE: sending a post request to /start_scan will kill other scans that are going on. Keeping an eye on the Master API and making sure the processes are done is a good idea to prevent lost data. The processes are done when new POST requests stop appearing.<br>
 The response will contain the IP addresses of running nodes, as well as their status code, that is if they are running or not.
+The image shows an example of 1 node running.
 <img width="1207" alt="Screenshot 2022-05-15 at 18 33 50" src="https://user-images.githubusercontent.com/62342382/168488494-bf9c2c98-f488-401d-b963-4874740410ba.png">
-
 
 <br>
 The databse can be reset with the following delete request<br>

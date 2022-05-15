@@ -39,7 +39,7 @@ example JSON:<br>
     "ips_to_scan": 4000000<br>
 }<br>
 country_code is the country you want to scan.<br>
-processes per ip is how many instances of scanner and deepscan to run per node.<br>
+processes per ip is how many instances of scanner and deepscan to run per node. On our test setup 4 was the maximum.<br>
 ips to scan is the total amount of IP addresses to scan, this will be distributed between nodes and processes evenly.<br>
 
 

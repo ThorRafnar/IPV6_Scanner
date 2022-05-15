@@ -16,7 +16,6 @@ install required pip3 modules<br>
 $ pip3 install -r requirements.txt<br>
 Run the API<br>
 $ python3 app2.py<br>
-<br>
 <h2>Then: Set up the Nodes</h2>
 Change the variable DB_HOST (Line 9 in run.py) to the API ip address and port<br>
 Install rabbitmq (Follow these up to step 6)<br>

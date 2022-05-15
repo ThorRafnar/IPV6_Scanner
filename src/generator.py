@@ -29,16 +29,15 @@ class Generator:
             self.prefixes = [("2001:0DB8:0000:000b", 64)] # Random default value, should never be used this way
         self.id = id
         self.pool_size = pool_size
-        self.chunk_size = 65536 // pool_size
+        self.chunk_size = 2**24 // pool_size
         self.lower_pref = self.chunk_size * self.id
         self.upper_pref = self.chunk_size * (self.id + 1)
         self.current_pref = 0
         self.next = 0
         self.size = len(self.prefixes)
-        self.offset = 0
         self.current = 1
-        self.power = 1.5
-        self.target = 65536 ** 3
+        self.power = 2
+        self.target = 65536 ** 4
         self.iterations = 0
         self.iter_target = 65536
         self.step = self.target ** (1/self.power) / self.iter_target
@@ -107,7 +106,7 @@ class Generator:
         ls[3] = prefix_ending % 0x10000
         ls[2] = (prefix_ending // 0x10000) % 0x10000
         if ((self.current**self.power) + self.offset >= self.target):
-            self.current = 0
+            self.current = 1
             self.offset += 1
         self.address = ls
 

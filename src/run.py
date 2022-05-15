@@ -27,7 +27,7 @@ def start_working():
         subprocess.Popen(['python3', 'deepscan.py', DB_HOST], stdout=subprocess.DEVNULL)
     #Start Masscan Producers
     for i in range(process_count):
-        subprocess.Popen(['python3', 'scannernmap.py', country_code, str(base_id + i), str(pool_size), str(ips_to_scan)])
+        subprocess.Popen(['python3', 'scannernmap.py', country_code, str(base_id + i), str(pool_size), str(ips_to_scan)], stdout=subprocess.DEVNULL)
         
     return Response(status=201)
 

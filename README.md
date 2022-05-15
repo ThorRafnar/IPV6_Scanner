@@ -10,7 +10,7 @@ $ mkdir data<br>
 $ mkdir data/db<br>
 Run MongoDB<br>
 $ mongod<br>
-Node: This will take over the terminal and another one must be opened to run the Master API
+Note: This will take over the terminal and another one must be opened to run the Master API
 cd to the /API directory<br>
 install required pip3 modules<br>
 $ pip3 install -r requirements.txt<br>

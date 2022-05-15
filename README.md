@@ -31,7 +31,7 @@ $ python3 run.py
 
 This will send a signal to the control API that the node is ready.<br>
 We tested with up to 8 nodes.<br>
-<h2>To run a scan</h2>
+<h2>Using the Control API</h2>
 Send a post request to the control API with settings as JSON body. We tested using postman.<br>
 URL: http://API_IP:5000/start_scan<br>
 example JSON:<br>
@@ -44,6 +44,9 @@ country_code is the country you want to scan.<br>
 processes per ip is how many instances of scanner and deepscan to run per node. On our test setup 4 was the maximum.<br>
 ips to scan is the total amount of IP addresses to scan, this will be distributed between nodes and processes evenly.<br>
 NOTE: sending a post request to /start_scan will kill other scans that are going on. Keeping an eye on the Master API and making sure the processes are done is a good idea to prevent lost data. The processes are done when new POST requests stop appearing.<br>
+The response will contain the IP addresses of running nodes, as well as their status code, that is if they are running or not.
+<img width="1207" alt="Screenshot 2022-05-15 at 18 33 50" src="https://user-images.githubusercontent.com/62342382/168488494-bf9c2c98-f488-401d-b963-4874740410ba.png">
+
 
 <br>
 The databse can be reset with the following delete request<br>

@@ -20,6 +20,11 @@ READY_SLAVES = set()
 class Address(db.Document):
     address = db.StringField()
     ports = db.ListField(db.IntField())
+    meta = {
+        'indexes': [
+            {'fields': ['address'], 'unique': True},
+        ],
+    }
     def to_json(self):
         return {"address": self.address,
                 "ports": self.ports}
@@ -83,7 +88,6 @@ def ready():
     READY_SLAVES.add(ip)
     print(READY_SLAVES)
     return Response(status=201)
-
 
 
 

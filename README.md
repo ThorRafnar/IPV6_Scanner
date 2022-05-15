@@ -31,7 +31,7 @@ This will send a signal to the control API that the node is ready.<br>
 We tested with up to 8 nodes.<br>
 <h2>To run a scan</h2>
 Send a post request to the control API with settings as JSON body. We tested using postman.<br>
-URL: http://64.227.64.75:5000/start_scan<br>
+URL: http://API_IP:5000/start_scan<br>
 example JSON:<br>
 {<br>
     "country_code": "dk",<br>

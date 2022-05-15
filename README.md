@@ -17,6 +17,8 @@ $ pip3 install -r requirements.txt<br>
 Run the API<br>
 $ python3 app2.py<br>
 <h2>Then: Set up the Nodes</h2>
+install nmap<br>
+$ apt install nmap<br>
 Change the variable DB_HOST (Line 9 in run.py) to the API ip address and port<br>
 Install rabbitmq (Follow these up to step 6)<br>
 https://www.hackerxone.com/2021/08/24/steps-to-install-rabbitmq-on-ubuntu-20-04/<br>

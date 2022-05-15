@@ -21,7 +21,7 @@ def start_working():
     ips_to_scan = data['scan_count']
     #Start Deepscan consumers
     for _ in range(process_count):
-        subprocess.Popen(['python3', 'deepscan.py'])
+        subprocess.Popen(['python3', 'deepscan.py', DB_HOST])
     #Start Masscan Producers
     for i in range(process_count):
         subprocess.Popen(['python3', 'scannernmap.py', country_code, str(base_id + i), str(pool_size), str(ips_to_scan)], stdout=subprocess.DEVNULL)

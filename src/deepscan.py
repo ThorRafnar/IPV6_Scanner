@@ -8,6 +8,7 @@ from ast import Global
 import socket
 import time
 import random
+import sys
 import requests as req
 import pika
 from ports import Ports
@@ -25,12 +26,12 @@ SCANS_RUNNING = 0
 THREAD_COUNT = 512
 
 class DeepScan():
-    def __init__(self, ports, avg_timeout_seconds=5.4, std_dev_timeout=1.0): # Gaussian distribution of timeout
+    def __init__(self, db_host_url, ports, avg_timeout_seconds=5.4, std_dev_timeout=1.0): # Gaussian distribution of timeout
         self.avg_timeout_seconds = avg_timeout_seconds
         self.ports = ports
         random.shuffle(self.ports)
         self.std_dev_timeout = std_dev_timeout
-        self.url = 'http://64.227.64.75:5000'
+        self.url = db_host_url
         
                 
     # This is the actual deepscan...
@@ -96,7 +97,8 @@ if __name__ == "__main__":
     p = Ports(44)
     p = p.get_common_ports()
     global DEEPSCAN
-    DEEPSCAN = DeepScan(p, 1.5, 0.3)
+    db_host_url = sys.argv[1]
+    DEEPSCAN = DeepScan(db_host_url, p, 1.5, 0.3)
     for _ in range(THREAD_COUNT):
         t = Thread(target=consume_queue)
         t.daemon = False

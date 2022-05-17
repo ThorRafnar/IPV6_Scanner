@@ -109,7 +109,7 @@ class Generator:
         if ((self.current**self.power) + self.offset >= self.target):
             self.current = 1
             self.offset += random.randint(0, 256)
-        if (self.offset >= 65536)
+        if self.offset >= 65536:
             self.offset = 0
         self.address = ls
 

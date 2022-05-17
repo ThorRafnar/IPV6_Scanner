@@ -10,7 +10,7 @@ import socket
 socket.setdefaulttimeout(0.15)  
 
 class Generator:
-    def __init__(self, filename, id, pool_size, current=0):   
+    def __init__(self, filename, id, pool_size, current=1):   
         ''' Reads a file containing prefixes and lengths, or initializes with 1 prefix and its length '''     
         if filename:
             file = open(filename)
@@ -35,7 +35,8 @@ class Generator:
         self.current_pref = 0
         self.next = 0
         self.size = len(self.prefixes)
-        self.current = 1
+        self.current = current
+        self.offset = random.randint(0, 512)
         self.power = 2
         self.target = 65536 ** 4
         self.iterations = 0
@@ -107,11 +108,13 @@ class Generator:
         ls[2] = (prefix_ending // 0x10000) % 0x10000
         if ((self.current**self.power) + self.offset >= self.target):
             self.current = 1
-            self.offset += 1
+            self.offset += random.randint(0, 256)
+        if (self.offset >= 65536)
+            self.offset = 0
         self.address = ls
 
     def __parse_prefix(self, prefix):
-        return [ int(item, 16) if item != '' else 0 for item in prefix.split(':')  ]
+        return [ int(item, 16) if item != '' else 0 for item in prefix.split(':')  ] + [0, 0] #Bugfix with some prefixes
 
     def __address_to_string(self, address):
         return ":".join([ f'{n:X}' for n in address ])
